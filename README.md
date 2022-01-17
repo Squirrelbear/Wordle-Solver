@@ -21,11 +21,11 @@ Entering one of the following as a rule will trigger the described result.
 
 Anything else is interpretted to be a rule. Letters should be entered for the result of a guess. The following is how you set the interpretation of the input.
 
-- * before a letter means that letter is in the correct position and must appear there for any valid word.
-- # before a letter means that letter is in the wrong position, but should appear at least once in the word.
+- \* before a letter means that letter is in the correct position and must appear there for any valid word.
+- \# before a letter means that letter is in the wrong position, but should appear at least once in the word.
 - Neither before a letter means the letter should not appear anywhere in the word.
 
-For example inputting the rule #YE*AST
+For example inputting the rule \#YE\*AST
 - Y should appear somewhere in the word but NOT at the start.
 - E, S, and T should NOT appear anywhere in the word.
 - A should appear in the middle position.
