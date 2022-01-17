@@ -1,6 +1,8 @@
 # Wordle-Solver
 
  A solver built to help determine the best guess based on rules.
+ 
+ Designed for solving puzzles on: https://www.powerlanguage.co.uk/wordle/
 
 Word data source: https://www-cs-faculty.stanford.edu/~knuth/sgb.html
 
