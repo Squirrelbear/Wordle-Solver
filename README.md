@@ -4,6 +4,8 @@
 
 Word data source: https://www-cs-faculty.stanford.edu/~knuth/sgb.html
 
+You may need to change the file path of the word file that is loaded in. See: Database::reset().
+
 # Input commands
 
 Entering one of the following as a rule will trigger the described result.
