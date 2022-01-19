@@ -35,12 +35,14 @@ void Database::reset()
 	std::cout << "Word list successfully loaded with " << _data.size() << " words." << std::endl;
 
 	file.close();
+
+	std::sort(_data.begin(), _data.end());
 }
 
 void Database::outputSuggestion() const
 {
 	std::cout << "Count remaining: " << _data.size() << std::endl;
-	if (_data.size() < 30) {
+	if (_data.size() <= 80) {
 		showAll();
 	}
 	showLetterChance();
@@ -92,6 +94,26 @@ void Database::showLetterChance() const
 		}
 	}
 	std::cout << std::endl;
+
+	// If there is at least one rule, show the up to 5 most common unused letters.
+	if (!_rules.empty()) {
+		std::cout << "Most unused common: ";
+
+		int outputCount = 0;
+		for (const auto& letterFreq : orderedResult) {
+			if (letterFreq.second > 0 && _rules.at(_rules.size()-1).find(letterFreq.first) == std::string::npos) {
+				std::cout << letterFreq.first << " ";
+				++outputCount;
+			}
+
+			if (outputCount == 5) break;
+		}
+		if (outputCount == 0) {
+			std::cout << "none found...";
+		}
+
+		std::cout << std::endl;
+	}
 }
 
 void Database::showHelp() const
