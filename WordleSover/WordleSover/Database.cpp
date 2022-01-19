@@ -142,7 +142,7 @@ bool Database::isRuleValid(const std::string & rule) const
 		if (rule.at(i) == '#' || rule.at(i) == '*') {
 			i++;
 		}
-		if (rule.at(i) >= 'a' && rule.at(i) <= 'z') {
+		if ((rule.at(i) >= 'a' && rule.at(i) <= 'z') || rule.at(i) == '_') {
 			letterCount++;
 		}
 		else {
@@ -158,13 +158,19 @@ bool Database::isRuleValid(const std::string & rule) const
 bool Database::wordFitsRule(const std::string & rule, const std::string & word) const
 {
 	for (int i = 0, pos = 0; i < rule.length(); ++i, ++pos) {
-		if (rule.at(i) == '*') { // Exists at position with exact match
+		// Wild card to ignore this position.
+		if (rule.at(i) == '_') {
+			continue;
+		}
+		// Exists at position with exact match
+		else if (rule.at(i) == '*') { 
 			i++;
 			if (rule.at(i) != word.at(pos)) {
 				return false;
 			}
 		}
-		else if (rule.at(i) == '#') { // One or more in string but not at pos
+		// One or more in string but not at pos
+		else if (rule.at(i) == '#') { 
 			i++;
 			bool foundOne = false;
 			for (int j = 0; j < word.length(); j++) {
@@ -176,7 +182,8 @@ bool Database::wordFitsRule(const std::string & rule, const std::string & word) 
 				return false;
 			}
 		}
-		else { // Should not appear anywhere in the word
+		// Should not appear anywhere in the word
+		else { 
 			for (int j = 0; j < word.length(); j++) {
 				if (word.at(j) == rule.at(i)) {
 					return false;
