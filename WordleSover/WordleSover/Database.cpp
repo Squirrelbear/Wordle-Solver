@@ -121,6 +121,7 @@ void Database::showHelp() const
 	std::cout << "#letter for any letter that should exist at least once, but not there." << std::endl
 		<< "*letter for any letter that should exist at exactly that position." << std::endl
 		<< "letter by itself for any letter that should exist nowhere." << std::endl
+		<< "_letter is a wild card you can use to shortcut and ignore that position." << std::endl
 		<< "Example: #YE*AST would mean at least one Y not at the first letter, " << std::endl
 		<< "nowhere any E, S, or T, and A should appear at the middle." << std::endl;
 }
