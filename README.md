@@ -8,6 +8,9 @@ Word data source: https://www-cs-faculty.stanford.edu/~knuth/sgb.html
 
 You may need to change the file path of the word file that is loaded in. See: Database::reset().
 
+* ([Youtube Demo](https://youtu.be/18llxWL9dl4))
+* My Wordle SMFL C++ clone: ([GitHub Link](https://github.com/Squirrelbear/Wordle-CPP-SMFL))
+
 # Input commands
 
 Entering one of the following as a rule will trigger the described result.
